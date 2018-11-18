@@ -1,0 +1,3 @@
+rootProject.name = 'mjollnir-all'
+
+include 'mjollnir-web','mjollnir-common','mjollnir-core'

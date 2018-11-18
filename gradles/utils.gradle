@@ -1,0 +1,122 @@
+ext {
+    isJavaProject = this.&isJavaProject
+    isDockerProject = this.&isDockerProject
+    isWebServiceProject = this.&isWebServiceProject
+    isDcsServerProject = this.&isDcsServerProject
+    isApiProject = this.&isApiProject
+    isSdkProject = this.&isSdkProject
+    isGateProject = this.&isGateProject
+
+    isAppProject = this.&isAppProject
+    isLibProject = this.&isLibProject
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def isWebServiceProject() {
+    Set<Project> set = isProjectEndsWith("-imp")
+    set.addAll(isProjectEndsWith("service"))
+    set.retainAll(isJavaProject())
+    return set
+}
+
+def isDcsServerProject() {
+    Set<Project> set = isProjectEndsWith("-server")
+    set.retainAll(isJavaProject())
+    return set
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def isApiProject() {
+    Set<Project> set = isProjectEndsWith("-api")
+    set.retainAll(isJavaProject())
+    return set
+}
+
+def isSdkProject() {
+    Set<Project> set = isProjectEndsWith("-sdk")
+    set.retainAll(isJavaProject())
+    return set
+}
+
+def isGateProject() {
+    Set<Project> set = isProjectEndsWith("-gate")
+    set.retainAll(isJavaProject())
+    return set
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def isDockerProject() {
+    return subprojects.findAll {
+        new File(it.projectDir, "src/main/docker").exists()
+    }
+}
+
+def isJavaProject() {
+    return subprojects.findAll {
+        it.childProjects.size() == 0 && new File(it.projectDir, "src").exists()
+    }
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+def isProjectEndsWith(suffix) {
+    return subprojects.findAll {
+        it.name.endsWith(suffix)
+    }
+}
+
+def isParentEquals(parentName) {
+    return subprojects.findAll {
+        it.parent != null && it.parent.name == parentName
+    }
+}
+
+Project isNameEquals(name) {
+    return subprojects.find {
+        it.name == name
+    }
+}
+
+boolean isLibProject() {
+    String projectName = project.getName()
+    if (projectName.endsWith("-api")) {
+        return true
+    }
+
+    if (projectName.endsWith("-common")) {
+        return true
+    }
+
+    if (projectName.endsWith("-lib")) {
+        return true
+    }
+
+    if (projectName.endsWith("-util")) {
+        return true
+    }
+
+    return false
+}
+
+boolean isAppProject() {
+    String projectName = project.getName()
+    if (projectName.endsWith("-imp")) {
+        return true
+    }
+
+    if (projectName.endsWith("-service")) {
+        return true
+    }
+
+    if (projectName.endsWith("-server")) {
+        return true
+    }
+
+    if (projectName.startsWith("ops-")) {
+        return true
+    }
+    return false
+}

@@ -1,0 +1,12 @@
+apply from: gradlesPath + "common.gradle"
+apply from: gradlesPath + "springboot.gradle"
+
+
+dependencies {
+    compile project(':mjollnir-core')
+    // spring boot
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junit5"
+    testCompile("org.junit.jupiter:junit-jupiter-params:$junit5")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:$junit5")
+    
+}

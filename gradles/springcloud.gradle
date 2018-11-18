@@ -1,0 +1,21 @@
+apply from: gradlesPath + "springboot.gradle"
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+configurations {
+}
+
+dependencies {
+    compile("org.springframework.cloud:spring-cloud-starter")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+//    compile("org.springframework.cloud:spring-cloud-starter-config")
+    // service 经常要用到客户端负载、路由、断路器等
+    compile("org.springframework.cloud:spring-cloud-starter-zuul")                //路由代理
+    compile("org.springframework.cloud:spring-cloud-starter-ribbon")              //客户端负载均衡
+    compile("org.springframework.cloud:spring-cloud-starter-feign")               //http client template
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix")             //断路器，服务降级
+}
