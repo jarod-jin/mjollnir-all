@@ -1,19 +1,38 @@
 apply from: gradlesPath + "java.gradle"
 apply plugin: "org.springframework.boot"
+apply plugin: 'io.spring.dependency-management'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url("https://plugins.gradle.org/m2/")
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
 
 configurations {
     all*.exclude group: "org.slf4j", module: "slf4j-log4j12"
     all*.exclude group: "log4j", module: "log4j"
 }
 
+
 dependencies {
     //boot
-    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-validation:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-security:$springBootVersion")
-    //logstash for logback
-    //compile("net.logstash.logback:logstash-logback-encoder:+")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-validation")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("mysql: mysql-connector-java:$mysqlVersion")
     //spring-boot-admin-client
     compile("de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}")
     //test

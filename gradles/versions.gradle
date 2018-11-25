@@ -22,4 +22,6 @@ ext {
     logbackVersion = '1.2.3'
     
     jmockitVersion = '1.43'
+    
+    mysqlVersion = '5.1.47'
 }
