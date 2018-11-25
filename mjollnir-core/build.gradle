@@ -1,3 +1,5 @@
-dependencies {
+apply from: gradlesPath + "java.gradle"
 
+dependencies {
+    compile ("io.jsonwebtoken:jjwt:$jjwtVersion")
 }

@@ -1,4 +1,4 @@
-apply from: rootProject.rootDir.getAbsolutePath() + "/gradles/common.gradle"
+apply from: rootProject.rootDir.getAbsolutePath() + "/gradles/const.gradle"
 apply from: rootProject.rootDir.getAbsolutePath() + "/gradles/utils.gradle"
 
 /** ******************************************************************************************/
@@ -40,8 +40,9 @@ buildscript {
 
 //子模块配置
 subprojects {
-    apply from: gradlesPath + "common.gradle"
+    apply from: gradlesPath + "const.gradle"
     apply from: gradlesPath + "utils.gradle"
+    apply from: gradlesPath + "versions.gradle"
 
     apply plugin: "java"
 
@@ -78,7 +79,6 @@ subprojects {
 
 allprojects {
     //公共插件
-    apply plugin: 'java'
     apply plugin: 'maven'
     apply plugin: "idea"
 

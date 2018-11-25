@@ -14,22 +14,11 @@ ext {
 ext {
     //
     gradlesPath = rootProject.rootDir.getAbsolutePath() + "/gradles/"
-    projectGroup = "cn.jarod"
-    projectVersion = "1.0.0-SNAPSHOT"
+    projectGroup = "cn.jarod.mjollnir"
+    projectVersion = "0.1-SNAPSHOT"
 }
 
 ext {
     templatePath = rootProject.rootDir.getAbsolutePath() + "/repo/template"
     cresourcesPath = "src/main/resources"
-}
-
-ext {
-    //
-//    dubboVersion = "2.5.10"
-    fastjsonVersion = "1.2.8"
-//    guavaVersion = "19.0"
-//    rxjavaVersion = "2.0.8"
-//    jodatimeVersion = "2.9.9"
-    springBootVersion = '2.1.0.RELEASE'
-    junit5 = '5.3.1'
 }
