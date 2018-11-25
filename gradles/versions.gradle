@@ -1,6 +1,7 @@
 ext {
     //
 //    dubboVersion = "2.5.10"
+    
     fastjsonVersion = "1.2.53"
     
     guavaVersion = "27.0-jre"
@@ -24,4 +25,6 @@ ext {
     jmockitVersion = '1.43'
     
     mysqlVersion = '5.1.47'
+
+    druidVersion = "1.1.10"
 }
