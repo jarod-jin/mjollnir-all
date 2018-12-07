@@ -27,7 +27,7 @@ buildscript {
     ext {
         springBootVersion = "2.1.0.RELEASE"
         springBootAdminVersion = "2.1.1"
-        springCloudVersion = "Greenwich.M1"//"Dalston.SR4"
+        springCloudVersion = "Greenwich.M3"//"Dalston.SR4"
         dockerPluginVersion = "3.2.4"
     }
 
@@ -44,7 +44,6 @@ subprojects {
     apply from: gradlesPath + "utils.gradle"
     apply from: gradlesPath + "versions.gradle"
 
-    apply plugin: "java"
 
     //JVM 版本号要求
     sourceCompatibility = 1.8
@@ -81,6 +80,7 @@ allprojects {
     //公共插件
     apply plugin: 'maven'
     apply plugin: "idea"
+    apply plugin: "java"
 
     group "${projectGroup}"
     version "${projectVersion}"
