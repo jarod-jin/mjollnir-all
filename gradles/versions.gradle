@@ -24,7 +24,7 @@ ext {
     
     jmockitVersion = '1.43'
     
-    mysqlVersion = '5.1.47'
+    mysqlVersion = '2.3.0'
 
     druidVersion = "1.1.10"
 }
