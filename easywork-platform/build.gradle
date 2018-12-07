@@ -1,9 +1,0 @@
-apply from: gradlesPath + "springcloud.gradle"
-
-dependencies{
-    implementation project(':easywork-core')
-    implementation project(':easywork-api')
-    implementation ("com.github.tobato:fastdfs-client:${fastdfsVersion}")
-
-    //testImplementation ("com.junit.platform:junit-platform-launcher:1.3.1")
-}
