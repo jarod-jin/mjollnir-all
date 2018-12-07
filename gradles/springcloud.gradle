@@ -6,16 +6,16 @@ dependencyManagement {
     }
 }
 
-configurations {
-}
 
 dependencies {
-    compile("org.springframework.cloud:spring-cloud-starter")
-    compile("org.springframework.cloud:spring-cloud-starter-eureka")
-//    compile("org.springframework.cloud:spring-cloud-starter-config")
+    implementation("org.springframework.cloud:spring-cloud-starter")
+    //implementation("org.springframework.cloud:spring-cloud-starter-config")
+
+   
     // service 经常要用到客户端负载、路由、断路器等
-    compile("org.springframework.cloud:spring-cloud-starter-zuul")                //路由代理
-    compile("org.springframework.cloud:spring-cloud-starter-ribbon")              //客户端负载均衡
-    compile("org.springframework.cloud:spring-cloud-starter-feign")               //http client template
-    compile("org.springframework.cloud:spring-cloud-starter-hystrix")             //断路器，服务降级
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-zuul")                //路由代理
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-ribbon")              //客户端负载均衡
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")               //http client template
+    //implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")             //断路器，服务降级
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 }

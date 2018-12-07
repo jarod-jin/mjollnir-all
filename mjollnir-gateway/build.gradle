@@ -1,0 +1,10 @@
+apply from: gradlesPath + "springcloud.gradle"
+
+
+
+dependencies{
+    implementation project(':easywork-api')
+    implementation project(':easywork-core')
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("io.jsonwebtoken:jjwt:${jjwtVersion}")
+}

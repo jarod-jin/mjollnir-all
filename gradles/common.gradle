@@ -1,0 +1,64 @@
+/* maven私服账号密码设定
+Properties localProperties = new Properties()
+localProperties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+
+ext {
+    //定义maven 私服账号
+    repoSnapshots = localProperties.getProperty("nexus_snapshots")
+    repoReleases = localProperties.getProperty("nexus_releases")
+    repoUser = localProperties.getProperty("nexus_user")
+    repoPwd = localProperties.getProperty("nexus_pwd")
+}
+*/
+ext {
+    //
+    gradlesPath = rootProject.rootDir.getAbsolutePath() + "/gradles/"
+    projectGroup = "com.dahua.tech"
+    projectVersion = "0.1-SNAPSHOT"
+}
+
+ext {
+    templatePath = rootProject.rootDir.getAbsolutePath() + "/repo/template"
+    cresourcesPath = "src/main/resources"
+}
+
+ext {
+    //
+//    dubboVersion = "2.5.10"
+
+    fastjsonVersion = "1.2.53"
+
+    guavaVersion = "27.0-jre"
+
+    springBootVersion = '2.1.0.RELEASE'
+
+    springVersion = '5.1.1.RELEASE'
+
+    lombokVersion = '1.18.4'
+
+    junitVersion = '5.3.1'
+
+    jjwtVersion = '0.9.1'
+
+    slf4jVersion = '1.7.25'
+
+    logbackVersion = '1.2.3'
+
+    jmockitVersion = '1.43'
+
+    mysqlVersion = '5.1.46'
+
+    druidVersion = "1.1.10"
+    
+    mariadbVersion = "2.3.0"
+
+    hibernateVersion = "5.3.7.Final"
+    
+    jjwtVersion = "0.9.1"
+
+    fastdfsVersion = "1.26.4"
+
+    poiVersion = "3.14"
+    
+}

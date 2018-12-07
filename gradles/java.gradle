@@ -1,15 +1,29 @@
 apply plugin: "java"
 
+configurations {
+    all*.exclude group: "org.slf4j", module: "slf4j-log4j12"
+    all*.exclude group: "log4j", module: "log4j"
+    all*.exclude group: "junit", module: "junit"
+}
+
 dependencies {
-    
-    compile ("com.google.guava:guava:$guavaVersion")
-    compile ("com.alibaba:fastjson:$fastjsonVersion")
+
+    implementation ("com.google.guava:guava:$guavaVersion")
+    implementation ("com.alibaba:fastjson:$fastjsonVersion")
 
 
     compileOnly ("org.projectlombok:lombok:$lombokVersion")
 
-    testCompile ("org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    testCompile("org.junit.jupiter:junit-jupiter-params:$junitVersion")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-    testCompile ("org.jmockit:jmockit:$jmockitVersion")
+    //junit5
+    testImplementation ("org.junit.jupiter:junit-jupiter-params:$junitVersion")
+    testImplementation ("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testImplementation ("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testImplementation ("org.jmockit:jmockit:$jmockitVersion")
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
