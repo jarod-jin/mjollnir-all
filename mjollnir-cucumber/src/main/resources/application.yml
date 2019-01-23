@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+
+cucumber:
+  port: 80
+  domain: http://isdp.test.dahuatech.com
+  context-path:
+
+
+
+
+

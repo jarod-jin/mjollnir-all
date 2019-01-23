@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version "2.1.0.RELEASE"
+    id 'io.spring.dependency-management' version "1.0.2.RELEASE"
+}
+
+group 'com.dahua.tech'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility= 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+ext {
+    fastjsonVersion= "1.2.53"
+    guavaVersion= "27.0-jre"
+    springBootVersion= '2.1.0.RELEASE'
+    springVersion= '5.1.1.RELEASE'
+    lombokVersion= '1.18.4'
+    junitVersion= '4.12'
+    jjwtVersion= '0.9.1'
+    slf4jVersion= '1.7.25'
+    logbackVersion= '1.2.3'
+    jmockitVersion= '1.43'
+    hibernateVersion= "5.3.7.Final"
+    cucumberVersion= "4.2.2"
+    seleniumVersion= "3.141.59"
+    assertjVersion = "3.11.1"
+    springCloudVersion= "Greenwich.M3"//"Dalston.SR4"
+}
+
+dependencies {
+    implementation ('org.springframework.boot:spring-boot-starter-web',
+                    'org.springframework.boot:spring-boot-starter-actuator',
+                    'org.springframework.boot:spring-boot-starter-test')
+    implementation "com.google.guava:guava:${guavaVersion}"
+    implementation "com.alibaba:fastjson:${fastjsonVersion}"
+    implementation "io.cucumber:cucumber-java8:${cucumberVersion}"
+    implementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+    implementation "io.cucumber:cucumber-spring:${cucumberVersion}"
+    implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    implementation "junit:junit:${junitVersion}"
+    implementation "org.assertj:assertj-core:${assertjVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+}

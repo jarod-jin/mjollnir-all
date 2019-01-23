@@ -1,0 +1,57 @@
+# Common label text
+label:
+  add: Add
+  appTitle: BBuddy
+  togglenavigation: Toggle navigation
+  dashboard: Dashboard
+  signout: Sign Out
+  accounts: Accounts
+  transactions: Transactions
+  export: Export
+  logo: \u00a9 2016 Odd-e
+
+  # Transaction Add related label text
+transactions:
+  add:
+    label:
+      type: Type
+      description: Description
+      date: Date
+      amount: Amount
+
+  # Transaction Index related label text
+  index:
+    label:
+      type: Type
+      description: Description
+      date: Date
+      amount: Amount
+      previousPage: Previous
+      nextPage: Next
+      title: Transactions
+
+  # Account Add related label text
+accounts:
+  add:
+    label:
+      name: Name
+      balanceBroughtForward: Balance Brought Forward
+  index:
+    label:
+      name: Name
+      balanceBroughtForward: Balance Brought Forward
+      title: Accounts
+
+  # Home related label text
+home:
+  label:
+    signout: 退出
+
+  # Signin related label text
+signin:
+  label:
+    head: 集成项目交付管理平台
+    username: User Name
+    password: Password
+    failed: 登录失败
+    submit: 登录
